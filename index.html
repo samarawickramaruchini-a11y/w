@@ -1,0 +1,453 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>WHIMSYVILLE | A Little World of Wonder</title>
+    
+    <!-- Tailwind CSS via CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&display=swap" rel="stylesheet">
+    
+    <!-- Tailwind Custom Configuration -->
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        whimsy: {
+                            pink: '#E81B7A', /* Matched from logo */
+                            dark: '#2D2A2A',
+                            light: '#FFF5F9',
+                            gold: '#D4AF37',
+                            grey: '#F3F4F6'
+                        }
+                    },
+                    fontFamily: {
+                        sans: ['Montserrat', 'sans-serif'],
+                        serif: ['Playfair Display', 'serif'],
+                    }
+                }
+            }
+        }
+    </script>
+
+    <style>
+        /* Custom Hide Scrollbar for Slider */
+        .hide-scrollbar::-webkit-scrollbar {
+            display: none;
+        }
+        .hide-scrollbar {
+            -ms-overflow-style: none;
+            scrollbar-width: none;
+        }
+    </style>
+</head>
+<body class="bg-white text-whimsy-dark font-sans antialiased overflow-x-hidden">
+
+    <!-- STICKY NAVIGATION -->
+    <nav class="fixed w-full z-50 bg-white/95 backdrop-blur-md shadow-sm transition-all duration-300" id="navbar">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-24">
+                <!-- Logo Area -->
+                <div class="flex-shrink-0 flex items-center gap-3 cursor-pointer">
+                    <!-- Placeholder for the logo W - Replace src with actual logo path -->
+                    <div class="w-12 h-12 bg-whimsy-pink flex items-center justify-center rounded-full shadow-md">
+                        <span class="text-white font-serif text-2xl font-bold italic">W</span>
+                    </div>
+                    <div>
+                        <h1 class="font-serif text-2xl text-whimsy-pink tracking-widest font-bold">WHIMSYVILLE</h1>
+                        <p class="text-[10px] tracking-widest text-gray-500 uppercase mt-[-2px]">A Little World of Wonder</p>
+                    </div>
+                </div>
+                
+                <!-- Desktop Menu -->
+                <div class="hidden md:flex space-x-8 items-center">
+                    <a href="#home" class="text-whimsy-dark hover:text-whimsy-pink font-medium transition">Home</a>
+                    <a href="#collections" class="text-whimsy-dark hover:text-whimsy-pink font-medium transition">Collections</a>
+                    <a href="#testimonials" class="text-whimsy-dark hover:text-whimsy-pink font-medium transition">Reviews</a>
+                    <a href="#contact" class="bg-whimsy-pink text-white px-6 py-2.5 rounded-full font-medium hover:bg-pink-600 transition shadow-lg shadow-pink-200">Contact Us</a>
+                </div>
+
+                <!-- Mobile Menu Button -->
+                <div class="md:hidden flex items-center">
+                    <button id="mobile-menu-btn" class="text-whimsy-dark hover:text-whimsy-pink focus:outline-none">
+                        <svg class="h-8 w-8" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/>
+                        </svg>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Mobile Menu -->
+        <div id="mobile-menu" class="hidden md:hidden bg-white border-t">
+            <div class="px-2 pt-2 pb-6 space-y-1 sm:px-3 flex flex-col items-center">
+                <a href="#home" class="block px-3 py-2 text-whimsy-dark font-medium hover:text-whimsy-pink w-full text-center">Home</a>
+                <a href="#collections" class="block px-3 py-2 text-whimsy-dark font-medium hover:text-whimsy-pink w-full text-center">Collections</a>
+                <a href="#testimonials" class="block px-3 py-2 text-whimsy-dark font-medium hover:text-whimsy-pink w-full text-center">Reviews</a>
+                <a href="#contact" class="mt-4 bg-whimsy-pink text-white px-8 py-2 rounded-full font-medium hover:bg-pink-600 transition w-max">Contact Us</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- HERO SECTION -->
+    <section id="home" class="relative pt-32 pb-20 lg:pt-40 lg:pb-28 overflow-hidden bg-whimsy-light">
+        <!-- Decorative Background Elements -->
+        <div class="absolute top-0 right-0 -mr-20 -mt-20 w-96 h-96 rounded-full bg-pink-100 opacity-50 blur-3xl"></div>
+        <div class="absolute bottom-0 left-0 -ml-20 -mb-20 w-80 h-80 rounded-full bg-pink-200 opacity-30 blur-3xl"></div>
+
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+                
+                <!-- Hero Text -->
+                <div class="text-center lg:text-left">
+                    <span class="inline-block py-1 px-3 rounded-full bg-pink-100 text-whimsy-pink text-sm font-semibold tracking-wide mb-6">
+                        ✨ New Gypsum Craft Kits Available
+                    </span>
+                    <h2 class="font-serif text-5xl md:text-6xl lg:text-7xl font-bold leading-tight mb-6 text-whimsy-dark">
+                        Spark Their <br>
+                        <span class="text-whimsy-pink italic">Imagination</span>
+                    </h2>
+                    <p class="text-lg text-gray-600 mb-8 max-w-lg mx-auto lg:mx-0">
+                        Discover beautifully curated painting kits, craft boxes, and gift items designed to bring a little world of wonder into your home. Safe, creative, and endlessly fun.
+                    </p>
+                    <div class="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start">
+                        <a href="#collections" class="bg-whimsy-pink text-white px-8 py-4 rounded-full font-semibold hover:bg-pink-600 transition shadow-xl shadow-pink-200 text-lg flex items-center justify-center gap-2">
+                            Shop Kits
+                            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"></path></svg>
+                        </a>
+                        <a href="#about" class="bg-white text-whimsy-dark border-2 border-whimsy-dark/10 px-8 py-4 rounded-full font-semibold hover:border-whimsy-pink hover:text-whimsy-pink transition text-lg text-center">
+                            Learn More
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Hero Image / Logo Graphic -->
+                <div class="relative flex justify-center items-center">
+                    <div class="w-72 h-72 md:w-96 md:h-96 bg-whimsy-pink rounded-full flex flex-col items-center justify-center shadow-2xl relative z-10">
+                        <!-- Inner Hexagon styling mimic -->
+                        <div class="border-2 border-white/30 p-8 rounded-3xl transform rotate-45 flex items-center justify-center mb-4">
+                            <span class="text-white font-serif text-6xl md:text-8xl font-bold italic transform -rotate-45">W</span>
+                        </div>
+                        <h3 class="text-white font-serif text-xl md:text-2xl tracking-[0.2em] mt-2">WHIMSYVILLE</h3>
+                        <p class="text-white/80 text-[10px] md:text-xs tracking-widest uppercase mt-1">A Little World of Wonder</p>
+                    </div>
+                    <!-- Decorative floating elements -->
+                    <div class="absolute top-10 -right-4 bg-white p-4 rounded-xl shadow-lg animate-bounce" style="animation-duration: 3s;">🎨</div>
+                    <div class="absolute bottom-10 -left-4 bg-white p-4 rounded-xl shadow-lg animate-bounce" style="animation-duration: 4s;">🏺</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SERVICES / COLLECTIONS GRID -->
+    <section id="collections" class="py-24 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <!-- Section Header -->
+            <div class="text-center max-w-3xl mx-auto mb-16">
+                <h2 class="font-serif text-4xl md:text-5xl font-bold mb-4 text-whimsy-dark">Our Magical Collections</h2>
+                <div class="w-24 h-1 bg-whimsy-pink mx-auto mb-6"></div>
+                <p class="text-gray-600 text-lg">From tiny hands to big masterpieces, we have everything your little artist needs to create magic.</p>
+            </div>
+
+            <!-- Grid -->
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                
+                <!-- Card 1 -->
+                <div class="group bg-whimsy-light rounded-3xl p-8 hover:bg-whimsy-pink transition-all duration-300 shadow-sm hover:shadow-2xl hover:-translate-y-2 cursor-pointer">
+                    <div class="w-16 h-16 bg-white rounded-2xl flex items-center justify-center text-3xl mb-6 shadow-sm group-hover:scale-110 transition-transform">🎨</div>
+                    <h3 class="font-serif text-2xl font-bold mb-3 group-hover:text-white transition-colors">Painting Kits</h3>
+                    <p class="text-gray-600 group-hover:text-pink-50 transition-colors mb-6">Complete sets with non-toxic paints, brushes, and canvases. Perfect for beginners and budding Picassos.</p>
+                    <span class="text-whimsy-pink group-hover:text-white font-semibold flex items-center gap-2 transition-colors">
+                        Explore Kits <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path></svg>
+                    </span>
+                </div>
+
+                <!-- Card 2 -->
+                <div class="group bg-whimsy-light rounded-3xl p-8 hover:bg-whimsy-pink transition-all duration-300 shadow-sm hover:shadow-2xl hover:-translate-y-2 cursor-pointer">
+                    <div class="w-16 h-16 bg-white rounded-2xl flex items-center justify-center text-3xl mb-6 shadow-sm group-hover:scale-110 transition-transform">✂️</div>
+                    <h3 class="font-serif text-2xl font-bold mb-3 group-hover:text-white transition-colors">Crafts & Gypsum</h3>
+                    <p class="text-gray-600 group-hover:text-pink-50 transition-colors mb-6">3D gypsum moulds, foam crafts, and sensory materials to build, shape, and create unique objects.</p>
+                    <span class="text-whimsy-pink group-hover:text-white font-semibold flex items-center gap-2 transition-colors">
+                        Explore Kits <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path></svg>
+                    </span>
+                </div>
+
+                <!-- Card 3 -->
+                <div class="group bg-whimsy-light rounded-3xl p-8 hover:bg-whimsy-pink transition-all duration-300 shadow-sm hover:shadow-2xl hover:-translate-y-2 cursor-pointer">
+                    <div class="w-16 h-16 bg-white rounded-2xl flex items-center justify-center text-3xl mb-6 shadow-sm group-hover:scale-110 transition-transform">🎁</div>
+                    <h3 class="font-serif text-2xl font-bold mb-3 group-hover:text-white transition-colors">Gift Items</h3>
+                    <p class="text-gray-600 group-hover:text-pink-50 transition-colors mb-6">Beautifully packaged craft boxes and personalized gift sets for birthdays, holidays, and special occasions.</p>
+                    <span class="text-whimsy-pink group-hover:text-white font-semibold flex items-center gap-2 transition-colors">
+                        Explore Gifts <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path></svg>
+                    </span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CUSTOMER TESTIMONIALS SLIDER -->
+    <section id="testimonials" class="py-24 bg-whimsy-pink relative overflow-hidden">
+        <!-- Background decoration -->
+        <div class="absolute inset-0 opacity-10" style="background-image: radial-gradient(#ffffff 2px, transparent 2px); background-size: 30px 30px;"></div>
+        
+        <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 text-center">
+            <h2 class="font-serif text-4xl md:text-5xl font-bold mb-4 text-white">Loved by Little Artists</h2>
+            <p class="text-pink-100 mb-12 text-lg">Don't just take our word for it. See what parents are saying!</p>
+
+            <!-- Slider Container -->
+            <div class="relative bg-white rounded-3xl p-8 md:p-12 shadow-2xl">
+                <div class="text-whimsy-gold text-4xl mb-6">★★★★★</div>
+                
+                <!-- Slide Content -->
+                <div id="slider-content" class="transition-opacity duration-300 opacity-100">
+                    <p class="text-xl md:text-2xl text-gray-700 italic font-light leading-relaxed mb-8" id="review-text">
+                        "The gypsum craft kit was an absolute hit! My 6-year-old spent hours molding and painting her little animals. The quality is fantastic and it's completely safe."
+                    </p>
+                    <div class="flex items-center justify-center gap-4">
+                        <div class="w-12 h-12 bg-pink-100 rounded-full flex items-center justify-center text-whimsy-pink font-bold text-lg" id="review-avatar">S</div>
+                        <div class="text-left">
+                            <h4 class="font-bold text-whimsy-dark" id="review-name">Sarah Jenkins</h4>
+                            <p class="text-sm text-gray-500" id="review-role">Mom of 2</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Navigation Buttons -->
+                <div class="flex justify-center gap-4 mt-8">
+                    <button onclick="prevReview()" class="w-12 h-12 rounded-full border-2 border-whimsy-pink text-whimsy-pink flex items-center justify-center hover:bg-whimsy-pink hover:text-white transition focus:outline-none">
+                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"></path></svg>
+                    </button>
+                    <button onclick="nextReview()" class="w-12 h-12 rounded-full border-2 border-whimsy-pink text-whimsy-pink flex items-center justify-center hover:bg-whimsy-pink hover:text-white transition focus:outline-none">
+                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path></svg>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CONTACT SECTION -->
+    <section id="contact" class="py-24 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="bg-whimsy-light rounded-[3rem] overflow-hidden shadow-xl">
+                <div class="grid grid-cols-1 lg:grid-cols-2">
+                    
+                    <!-- Contact Info -->
+                    <div class="p-12 lg:p-16 flex flex-col justify-center bg-whimsy-pink text-white relative">
+                        <!-- Inner decoration -->
+                        <div class="absolute top-0 right-0 p-8 opacity-20">
+                            <svg class="w-32 h-32" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2L15.09 8.26L22 9.27L17 14.14L18.18 21.02L12 17.77L5.82 21.02L7 14.14L2 9.27L8.91 8.26L12 2Z"/></svg>
+                        </div>
+                        
+                        <h2 class="font-serif text-4xl font-bold mb-6 relative z-10">Get in Touch</h2>
+                        <p class="text-pink-100 mb-10 text-lg relative z-10">
+                            Have a question about a kit? Need a custom gift for a party? Drop us a line and we'll get back to you with a little bit of wonder.
+                        </p>
+                        
+                        <div class="space-y-6 relative z-10">
+                            <div class="flex items-center gap-4">
+                                <div class="w-10 h-10 rounded-full bg-white/20 flex items-center justify-center">
+                                    <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path></svg>
+                                </div>
+                                <span class="font-medium">hello@whimsyville.com</span>
+                            </div>
+                            <div class="flex items-center gap-4">
+                                <div class="w-10 h-10 rounded-full bg-white/20 flex items-center justify-center">
+                                    <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"></path></svg>
+                                </div>
+                                <span class="font-medium">+1 (555) 123-4567</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Form -->
+                    <div class="p-12 lg:p-16 bg-white">
+                        <form id="contactForm" class="space-y-6">
+                            <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
+                                <div>
+                                    <label class="block text-sm font-medium text-gray-700 mb-2">First Name</label>
+                                    <input type="text" required class="w-full px-4 py-3 rounded-xl border border-gray-200 focus:ring-2 focus:ring-whimsy-pink focus:border-whimsy-pink outline-none transition bg-gray-50 focus:bg-white" placeholder="Jane">
+                                </div>
+                                <div>
+                                    <label class="block text-sm font-medium text-gray-700 mb-2">Last Name</label>
+                                    <input type="text" required class="w-full px-4 py-3 rounded-xl border border-gray-200 focus:ring-2 focus:ring-whimsy-pink focus:border-whimsy-pink outline-none transition bg-gray-50 focus:bg-white" placeholder="Doe">
+                                </div>
+                            </div>
+                            
+                            <div>
+                                <label class="block text-sm font-medium text-gray-700 mb-2">Email Address</label>
+                                <input type="email" required class="w-full px-4 py-3 rounded-xl border border-gray-200 focus:ring-2 focus:ring-whimsy-pink focus:border-whimsy-pink outline-none transition bg-gray-50 focus:bg-white" placeholder="jane@example.com">
+                            </div>
+                            
+                            <div>
+                                <label class="block text-sm font-medium text-gray-700 mb-2">Message</label>
+                                <textarea required rows="4" class="w-full px-4 py-3 rounded-xl border border-gray-200 focus:ring-2 focus:ring-whimsy-pink focus:border-whimsy-pink outline-none transition bg-gray-50 focus:bg-white resize-none" placeholder="How can we help you?"></textarea>
+                            </div>
+                            
+                            <button type="submit" id="submitBtn" class="w-full bg-whimsy-dark text-white font-bold py-4 rounded-xl hover:bg-black transition duration-300 flex items-center justify-center gap-2">
+                                Send Message
+                                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path></svg>
+                            </button>
+                            
+                            <!-- Success Message (Hidden by default) -->
+                            <div id="formSuccess" class="hidden bg-green-50 text-green-700 p-4 rounded-xl text-center font-medium border border-green-200 mt-4">
+                                🎉 Thank you! Your message has been sent successfully.
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="bg-whimsy-dark text-white py-12">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col md:flex-row justify-between items-center gap-6">
+            <div class="flex items-center gap-3">
+                <div class="w-10 h-10 bg-whimsy-pink flex items-center justify-center rounded-full">
+                    <span class="text-white font-serif text-xl font-bold italic">W</span>
+                </div>
+                <div>
+                    <h2 class="font-serif text-xl tracking-widest font-bold">WHIMSYVILLE</h2>
+                    <p class="text-[9px] tracking-widest text-gray-400 uppercase mt-[-2px]">A Little World of Wonder</p>
+                </div>
+            </div>
+            
+            <div class="flex gap-6 text-gray-400">
+                <a href="#" class="hover:text-whimsy-pink transition">Instagram</a>
+                <a href="#" class="hover:text-whimsy-pink transition">Facebook</a>
+                <a href="#" class="hover:text-whimsy-pink transition">Pinterest</a>
+            </div>
+            
+            <p class="text-gray-500 text-sm text-center md:text-right">© 2024 Whimsyville. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <!-- JAVASCRIPT INTERACTIVITY -->
+    <script>
+        // --- 1. Mobile Menu Toggle ---
+        const btn = document.getElementById('mobile-menu-btn');
+        const menu = document.getElementById('mobile-menu');
+
+        btn.addEventListener('click', () => {
+            menu.classList.toggle('hidden');
+        });
+
+        // Close mobile menu on link click
+        document.querySelectorAll('#mobile-menu a').forEach(link => {
+            link.addEventListener('click', () => {
+                menu.classList.add('hidden');
+            });
+        });
+
+        // --- 2. Testimonial Slider Logic ---
+        const reviews = [
+            {
+                text: '"The gypsum craft kit was an absolute hit! My 6-year-old spent hours molding and painting her little animals. The quality is fantastic and it\'s completely safe."',
+                name: "Sarah Jenkins",
+                role: "Mom of 2",
+                avatar: "S"
+            },
+            {
+                text: '"I bought the painting kit for my niece\'s birthday. The packaging was beautiful (she loved the pink box!) and the paints were vibrant and easy to wash off."',
+                name: "Michael Chen",
+                role: "Cool Uncle",
+                avatar: "M"
+            },
+            {
+                text: '"Whimsyville has become our go-to for rainy day activities. The craft boxes are so thoughtfully put together. Highly recommend the subscription!"',
+                name: "Priya Patel",
+                role: "Preschool Teacher",
+                avatar: "P"
+            }
+        ];
+
+        let currentReview = 0;
+        const reviewText = document.getElementById('review-text');
+        const reviewName = document.getElementById('review-name');
+        const reviewRole = document.getElementById('review-role');
+        const reviewAvatar = document.getElementById('review-avatar');
+        const sliderContent = document.getElementById('slider-content');
+
+        function updateSlider() {
+            // Fade out
+            sliderContent.style.opacity = '0';
+            
+            setTimeout(() => {
+                // Update content
+                reviewText.textContent = reviews[currentReview].text;
+                reviewName.textContent = reviews[currentReview].name;
+                reviewRole.textContent = reviews[currentReview].role;
+                reviewAvatar.textContent = reviews[currentReview].avatar;
+                
+                // Fade in
+                sliderContent.style.opacity = '1';
+            }, 300);
+        }
+
+        function nextReview() {
+            currentReview = (currentReview + 1) % reviews.length;
+            updateSlider();
+        }
+
+        function prevReview() {
+            currentReview = (currentReview - 1 + reviews.length) % reviews.length;
+            updateSlider();
+        }
+
+        // Auto-advance slider every 6 seconds
+        setInterval(nextReview, 6000);
+
+        // --- 3. Contact Form Submission ---
+        const form = document.getElementById('contactForm');
+        const formSuccess = document.getElementById('formSuccess');
+        const submitBtn = document.getElementById('submitBtn');
+
+        form.addEventListener('submit', (e) => {
+            e.preventDefault(); // Prevent page reload
+            
+            // Change button text to show loading state
+            const originalText = submitBtn.innerHTML;
+            submitBtn.innerHTML = 'Sending...';
+            submitBtn.disabled = true;
+            submitBtn.classList.add('opacity-75');
+
+            // Simulate network request
+            setTimeout(() => {
+                // Hide form fields
+                form.reset();
+                
+                // Restore button
+                submitBtn.innerHTML = originalText;
+                submitBtn.disabled = false;
+                submitBtn.classList.remove('opacity-75');
+
+                // Show success message
+                formSuccess.classList.remove('hidden');
+                
+                // Hide success message after 5 seconds
+                setTimeout(() => {
+                    formSuccess.classList.add('hidden');
+                }, 5000);
+            }, 1500);
+        });
+
+        // --- 4. Navbar Scroll Effect ---
+        const navbar = document.getElementById('navbar');
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 20) {
+                navbar.classList.add('py-2', 'shadow-md');
+                navbar.classList.remove('py-0', 'shadow-sm');
+            } else {
+                navbar.classList.add('py-0', 'shadow-sm');
+                navbar.classList.remove('py-2', 'shadow-md');
+            }
+        });
+    </script>
+</body>
+</html>
